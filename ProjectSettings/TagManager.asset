@@ -50,3 +50,6 @@ TagManager:
   - name: Furniture
     uniqueID: 1003776723
     locked: 0
+  - name: People
+    uniqueID: 1869445669
+    locked: 0
