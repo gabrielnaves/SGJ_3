@@ -18,9 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
     Vector2 CalculateMovementDirection() {
         Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (direction != Vector2.zero)
-            direction = direction.normalized;
-        return direction;
+        return direction.normalized;
     }
 
     float CalculateMovementSpeed() {
