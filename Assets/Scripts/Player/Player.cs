@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public PlayerMovement movement;
     public PlayerOpenDoor openDoor;
     public PlayerFieldOfView fieldOfView;
+    public bool hasKey = false;
 
     public Vector3 position {
         get {

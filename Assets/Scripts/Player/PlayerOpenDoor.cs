@@ -9,9 +9,11 @@ public class PlayerOpenDoor : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         var door = other.gameObject.GetComponent<Door>();
-        if (door)
+        if (door) {
             if (!adjacentDoors.Contains(door))
-                adjacentDoors.Add(door);
+                if (Player.instance.hasKey || !door.requireKey)
+                    adjacentDoors.Add(door);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {

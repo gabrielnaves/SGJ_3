@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
+    public bool requireKey = false;
     public float doorCloseTime = 0.4f;
     public float doorOpenTime = 2f;
     public bool open = false;
