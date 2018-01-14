@@ -19,7 +19,7 @@ TagManager:
   - Player
   - DoorsPeek
   - NPCs
-  - 
+  - Key
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 812350797
+    locked: 0
+  - name: UI
+    uniqueID: 73309449
     locked: 0
