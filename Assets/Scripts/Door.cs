@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
+    public float doorCloseTime = 0.4f;
+    public bool open = false;
+
     Rigidbody2D rigidbody2d;
     float startingRotation;
+
+
+    public void ToggleDoor() {
+        if (open)
+            CloseDoor();
+        else
+            OpenDoor();
+    }
+
+    public void OpenDoor() {
+        open = true;
+        rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    public void CloseDoor() {
+        open = false;
+        StartCoroutine(CloseDoor_());
+    }
 
     void Awake() {
         rigidbody2d = GetComponent<Rigidbody2D>();
         startingRotation = rigidbody2d.rotation;
+        CloseDoor();
     }
 
     void LateUpdate() {
@@ -17,5 +39,19 @@ public class Door : MonoBehaviour {
             rigidbody2d.rotation = startingRotation + 90f;
         if (rigidbody2d.rotation < startingRotation - 90f)
             rigidbody2d.rotation = startingRotation - 90f;
+    }
+
+    IEnumerator CloseDoor_() {
+        if (!Mathf.Equals(rigidbody2d.rotation, startingRotation)) {
+            float elapsedTime = 0f;
+            float start = rigidbody2d.rotation;
+            while (elapsedTime < doorCloseTime) {
+                rigidbody2d.rotation = Mathf.Lerp(start, startingRotation, elapsedTime / doorCloseTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            rigidbody2d.rotation = startingRotation;
+        }
+        rigidbody2d.bodyType = RigidbodyType2D.Static;
     }
 }
