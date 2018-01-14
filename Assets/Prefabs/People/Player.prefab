@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255524916274122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4581144534977476}
@@ -264,6 +264,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1536
   meshResolution: 5
+  maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 33974134476951882}
   viewMeshRenderer: {fileID: 23780669184744558}
 --- !u!212 &212365280103475850

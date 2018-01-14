@@ -11,6 +11,8 @@ public class PlayerFieldOfView : MonoBehaviour {
     public LayerMask obstacleMask;
     public float meshResolution;
 
+    public float maskCutawayDst = 0.2f;
+
     public MeshFilter viewMeshFilter;
     public MeshRenderer viewMeshRenderer;
     Mesh viewMesh;
@@ -40,7 +42,7 @@ public class PlayerFieldOfView : MonoBehaviour {
 
         vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; ++i) {
-            vertices[i+1] = transform.InverseTransformPoint(viewPoints[i]);
+            vertices[i+1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.right * maskCutawayDst;
             if (i < vertexCount - 2) {
                 triangles[i*3] = 0;
                 triangles[i*3 + 1] = i + 1;
