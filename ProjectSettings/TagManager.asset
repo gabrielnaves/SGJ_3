@@ -53,6 +53,12 @@ TagManager:
   - name: FieldOfView
     uniqueID: 1463745433
     locked: 0
-  - name: People
+  - name: Player
     uniqueID: 1869445669
+    locked: 0
+  - name: EnemyFieldOfView
+    uniqueID: 2263240385
+    locked: 0
+  - name: Enemies
+    uniqueID: 812350797
     locked: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed;
-    new public bool enabled;
+    new public bool enabled = true;
 
     Rigidbody2D rigidbody2d;
     new Camera camera;
