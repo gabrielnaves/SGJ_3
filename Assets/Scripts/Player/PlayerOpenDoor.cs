@@ -11,8 +11,7 @@ public class PlayerOpenDoor : MonoBehaviour {
         var door = other.gameObject.GetComponent<Door>();
         if (door) {
             if (!adjacentDoors.Contains(door))
-                if (Player.instance.hasKey || !door.requireKey)
-                    adjacentDoors.Add(door);
+                adjacentDoors.Add(door);
         }
     }
 
@@ -27,8 +26,12 @@ public class PlayerOpenDoor : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space))
-            foreach(var door in adjacentDoors)
-                door.ToggleDoor();
+            foreach(var door in adjacentDoors) {
+                if (door.requireKey && !Player.instance.hasKey)
+                    KeyTexts.instance.ShowNoKeyWarning();
+                else
+                    door.ToggleDoor();
+            }
         if (Input.GetKey(KeyCode.E)) {
             foreach(var door in adjacentDoors)
                 door.PeekDoor();
