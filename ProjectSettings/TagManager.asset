@@ -16,7 +16,7 @@ TagManager:
   - Furniture
   - Walls
   - Doors
-  - 
+  - Player
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Furniture
     uniqueID: 1003776723
+    locked: 0
+  - name: FieldOfView
+    uniqueID: 1463745433
     locked: 0
   - name: People
     uniqueID: 1869445669

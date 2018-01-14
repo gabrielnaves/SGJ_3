@@ -7,13 +7,25 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
 
     Rigidbody2D rigidbody2d;
+    new Camera camera;
 
     void Awake() {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        camera = Camera.main;
     }
 
     void Update() {
         rigidbody2d.velocity = CalculateMovementSpeed() * CalculateMovementDirection();
+        UpdateRotation();
+    }
+
+    void UpdateRotation() {
+        Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.Euler(0, 0, Angle(mousePosition - (Vector2)transform.position));
+    }
+
+    float Angle(Vector2 point) {
+        return Mathf.Atan2(point.y, point.x) * Mathf.Rad2Deg;
     }
 
     Vector2 CalculateMovementDirection() {
