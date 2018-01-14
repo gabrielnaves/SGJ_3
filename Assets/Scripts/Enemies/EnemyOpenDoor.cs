@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyOpenDoor : MonoBehaviour {
 
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerStay2D(Collider2D other) {
         var door = other.gameObject.GetComponent<Door>();
         if (door)
             door.OpenDoor();

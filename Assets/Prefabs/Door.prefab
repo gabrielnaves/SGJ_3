@@ -164,6 +164,7 @@ MonoBehaviour:
   doorCloseTime: 0.4
   doorOpenTime: 5
   open: 0
+  maxAngle: 90
 --- !u!212 &212107285313931368
 SpriteRenderer:
   m_ObjectHideFlags: 1

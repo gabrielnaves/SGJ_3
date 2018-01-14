@@ -180,7 +180,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1
 --- !u!58 &58427876023245632
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -258,14 +258,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715817935cc2b2649819482ffae80ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.1
-  path:
-  - {x: 3.25, y: -6, z: 0}
-  - {x: 3.25, y: -3.84375, z: 0}
-  - {x: -0.75, y: -3.84375, z: 0}
-  - {x: -6.79, y: -3.84375, z: 0}
-  - {x: -7.01875, y: -1.44, z: 0}
-  - {x: -7.01875, y: 0.59, z: 0}
+  startSpeed: 1
+  loopSpeed: 1
+  startPath:
+  - {x: 3.25, y: -7, z: 0}
+  - {x: 3.25, y: -2, z: 0}
+  loopPath:
+  - {x: 3.25, y: -2, z: 0}
+  - {x: 0, y: -3.6875, z: 0}
 --- !u!114 &114958615921445648
 MonoBehaviour:
   m_ObjectHideFlags: 1
