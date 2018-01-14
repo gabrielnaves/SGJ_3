@@ -10,7 +10,6 @@ public class Door : MonoBehaviour {
     Rigidbody2D rigidbody2d;
     float startingRotation;
 
-
     public void ToggleDoor() {
         if (open)
             CloseDoor();
@@ -26,6 +25,14 @@ public class Door : MonoBehaviour {
     public void CloseDoor() {
         open = false;
         StartCoroutine(CloseDoor_());
+    }
+
+    public void PeekDoor() {
+        gameObject.layer = LayerMask.NameToLayer("DoorsPeek");
+    }
+
+    public void StopPeekingDoor() {
+        gameObject.layer = LayerMask.NameToLayer("Doors");
     }
 
     void Awake() {

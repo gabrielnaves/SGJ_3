@@ -16,13 +16,21 @@ public class PlayerOpenDoor : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other) {
         var door = other.gameObject.GetComponent<Door>();
         if (door)
-            if (adjacentDoors.Contains(door))
+            if (adjacentDoors.Contains(door)) {
                 adjacentDoors.Remove(door);
+                door.StopPeekingDoor();
+            }
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space))
             foreach(var door in adjacentDoors)
                 door.ToggleDoor();
+        if (Input.GetKey(KeyCode.E))
+            foreach(var door in adjacentDoors)
+                door.PeekDoor();
+        else if (Input.GetKeyUp(KeyCode.E))
+            foreach(var door in adjacentDoors)
+                door.StopPeekingDoor();
     }
 }
