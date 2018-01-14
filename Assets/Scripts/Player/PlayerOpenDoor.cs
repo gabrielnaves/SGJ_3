@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerOpenDoor : MonoBehaviour {
 
+    public PlayerMovement playerMovement;
     List<Door> adjacentDoors = new List<Door>();
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -26,11 +27,15 @@ public class PlayerOpenDoor : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
             foreach(var door in adjacentDoors)
                 door.ToggleDoor();
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E)) {
             foreach(var door in adjacentDoors)
                 door.PeekDoor();
-        else if (Input.GetKeyUp(KeyCode.E))
+            playerMovement.enabled = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.E)) {
             foreach(var door in adjacentDoors)
                 door.StopPeekingDoor();
+            playerMovement.enabled = true;
+        }
     }
 }

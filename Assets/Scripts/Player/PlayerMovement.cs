@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed;
+    new public bool enabled;
 
     Rigidbody2D rigidbody2d;
     new Camera camera;
@@ -15,7 +16,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        rigidbody2d.velocity = CalculateMovementSpeed() * CalculateMovementDirection();
+        if (enabled)
+            rigidbody2d.velocity = CalculateMovementSpeed() * CalculateMovementDirection();
+        else
+            rigidbody2d.velocity = Vector2.zero;
         UpdateRotation();
     }
 
