@@ -8,11 +8,11 @@ public class PlayerMovement : MonoBehaviour {
     new public bool enabled = true;
 
     Rigidbody2D rigidbody2d;
-    new Camera camera;
+    Camera mainCamera;
 
     void Awake() {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        camera = Camera.main;
+        mainCamera = Camera.main;
     }
 
     void Update() {
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void UpdateRotation() {
-        Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.Euler(0, 0, Angle(mousePosition - (Vector2)transform.position));
     }
 

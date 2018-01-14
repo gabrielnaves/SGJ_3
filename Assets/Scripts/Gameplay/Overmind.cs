@@ -10,6 +10,7 @@ public class Overmind : MonoBehaviour {
     public GameObject bustedText;
     public GameObject gotAwayText;
     public float restartDelay = 1f;
+    public Fading fading;
 
     public void WinGame() {
         Time.timeScale = 0f;
@@ -34,5 +35,15 @@ public class Overmind : MonoBehaviour {
 
     void Awake() {
         instance = this;
+    }
+
+    void Start() {
+        Player.instance.movement.enabled = false;
+        fading.endFadeEvent.AddListener(() => { BeginGame(); });
+        fading.RequestFadeOut();
+    }
+
+    public void BeginGame() {
+        Player.instance.movement.enabled = true;
     }
 }

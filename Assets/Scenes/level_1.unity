@@ -521,15 +521,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4581144534977476, guid: ace0ddeb5149e8a489d207b309578b20, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4581144534977476, guid: ace0ddeb5149e8a489d207b309578b20, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4581144534977476, guid: ace0ddeb5149e8a489d207b309578b20, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581144534977476, guid: ace0ddeb5149e8a489d207b309578b20, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ace0ddeb5149e8a489d207b309578b20, type: 2}
@@ -1953,6 +1957,7 @@ MonoBehaviour:
   bustedText: {fileID: 1698392479}
   gotAwayText: {fileID: 1623470428}
   restartDelay: 1
+  fading: {fileID: 2012938411}
 --- !u!4 &1499403452 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4451719606309930, guid: 737b47914d68a574c8f2f05330846ba1,
@@ -2580,7 +2585,7 @@ Transform:
   m_GameObject: {fileID: 2012938408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2617,7 +2622,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd83be50370959e4f926f3fef7378173, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b0412f879f24364f9a2a1eeb3d650c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2635,9 +2640,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2012938408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 069e6ce56a9a3c242b962e549e861d66, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c59e168f482054f859a81163ab967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTime: 1
+  startDelay: 1
+  endFadeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &2023183823 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4160720238066126, guid: d88d9cc8a2c050748920236b7968e309,
