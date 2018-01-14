@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114141284478779060}
   - component: {fileID: 114958615921445648}
   - component: {fileID: 114771856096507984}
+  - component: {fileID: 114363310780660758}
   m_Layer: 13
   m_Name: Dad
   m_TagString: Untagged
@@ -236,6 +237,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   useRigidbody: 1
+--- !u!114 &114363310780660758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785273318032844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec5117b7411409488cbfaa51ecefdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114470837294931012
 MonoBehaviour:
   m_ObjectHideFlags: 1
