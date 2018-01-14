@@ -16,11 +16,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (enabled)
+        if (enabled) {
             rigidbody2d.velocity = CalculateMovementSpeed() * CalculateMovementDirection();
+            UpdateRotation();
+        }
         else
             rigidbody2d.velocity = Vector2.zero;
-        UpdateRotation();
     }
 
     void UpdateRotation() {

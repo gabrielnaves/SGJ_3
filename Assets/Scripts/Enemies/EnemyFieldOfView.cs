@@ -28,9 +28,8 @@ public class EnemyFieldOfView : MonoBehaviour {
     void SearchPlayer() {
         if (Player.instance) {
             var dir = (Player.instance.position - transform.position).normalized;
-            if (Vector3.Angle(transform.right, dir) < (viewAngle + 20f) / 2f) {
-                Debug.DrawLine(transform.position, Player.instance.position, Color.red);
-            }
+            if (Vector3.Angle(transform.right, dir) < (viewAngle + 20f) / 2f)
+                Overmind.instance.LoseGame();
         }
     }
 
