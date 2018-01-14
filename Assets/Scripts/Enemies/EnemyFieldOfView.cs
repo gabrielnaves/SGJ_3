@@ -28,9 +28,18 @@ public class EnemyFieldOfView : MonoBehaviour {
     void SearchPlayer() {
         if (Player.instance) {
             var dir = (Player.instance.position - transform.position).normalized;
-            if (Vector3.Angle(transform.right, dir) < (viewAngle + 20f) / 2f)
-                Overmind.instance.LoseGame();
+            if (PlayerInFieldOfView(dir)) {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, targetMask);
+                if (hit) {
+                    if (hit.collider.tag == "Player")
+                        Overmind.instance.LoseGame();
+                }
+            }
         }
+    }
+
+    bool PlayerInFieldOfView(Vector3 direction) {
+        return Vector3.Angle(transform.right, direction) < viewAngle / 2f;
     }
 
     public void DrawFieldOfView() {

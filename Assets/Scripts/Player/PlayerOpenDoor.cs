@@ -32,7 +32,7 @@ public class PlayerOpenDoor : MonoBehaviour {
                 door.PeekDoor();
             playerMovement.enabled = false;
         }
-        else if (Input.GetKeyUp(KeyCode.E)) {
+        else if (Input.GetKeyUp(KeyCode.E) && !Overmind.instance.gameEnded) {
             foreach(var door in adjacentDoors)
                 door.StopPeekingDoor();
             playerMovement.enabled = true;

@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1785273318032844}
   m_IsPrefabParent: 1
+--- !u!1 &1033485266339080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4305350598856548}
+  - component: {fileID: 58346958560397912}
+  - component: {fileID: 114470837294931012}
+  m_Layer: 0
+  m_Name: DoorOpen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1785273318032844
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +41,8 @@ GameObject:
   - component: {fileID: 50255608826763480}
   - component: {fileID: 114141284478779060}
   - component: {fileID: 114958615921445648}
-  m_Layer: 11
+  - component: {fileID: 114771856096507984}
+  m_Layer: 13
   m_Name: Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +66,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4305350598856548
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033485266339080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4329022772583554}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4329022772583554
 Transform:
   m_ObjectHideFlags: 1
@@ -58,6 +89,7 @@ Transform:
   m_LocalPosition: {x: 3, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4305350598856548}
   - {fileID: 4887061466709280}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4329022772583554}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23866866766013498
 MeshRenderer:
@@ -134,6 +166,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &58346958560397912
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033485266339080}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!58 &58427876023245632
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -175,8 +222,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114771856096507984}
+        m_MethodName: LookTowardsMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  useRigidbody: 1
+--- !u!114 &114470837294931012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033485266339080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaff89d5e90a4f4884620cf146567bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114771856096507984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785273318032844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715817935cc2b2649819482ffae80ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0.1
+  path:
+  - {x: 3.25, y: -6, z: 0}
+  - {x: 3.25, y: -3.84375, z: 0}
+  - {x: -0.75, y: -3.84375, z: 0}
+  - {x: -6.79, y: -3.84375, z: 0}
+  - {x: -7.01875, y: -1.44, z: 0}
+  - {x: -7.01875, y: 0.59, z: 0}
 --- !u!114 &114958615921445648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,10 +281,10 @@ MonoBehaviour:
   viewAngle: 120
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 7680
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 5632
   meshResolution: 1
   viewMeshFilter: {fileID: 33319972755263216}
   viewMeshRenderer: {fileID: 23866866766013498}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
     public float doorCloseTime = 0.4f;
+    public float doorOpenTime = 2f;
     public bool open = false;
 
     Rigidbody2D rigidbody2d;
@@ -20,6 +21,7 @@ public class Door : MonoBehaviour {
     public void OpenDoor() {
         open = true;
         rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
+        Invoke("CloseDoor", doorOpenTime);
     }
 
     public void CloseDoor() {

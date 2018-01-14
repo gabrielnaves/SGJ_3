@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorCloseTime: 0.4
+  doorOpenTime: 5
   open: 0
 --- !u!212 &212107285313931368
 SpriteRenderer:

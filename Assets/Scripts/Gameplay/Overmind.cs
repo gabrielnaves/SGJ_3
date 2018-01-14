@@ -12,7 +12,10 @@ public class Overmind : MonoBehaviour {
     public float restartDelay = 1f;
     public Fading fading;
 
+    public bool gameEnded { get; private set; }
+
     public void WinGame() {
+        gameEnded = true;
         Time.timeScale = 0f;
         Player.instance.movement.enabled = false;
         gotAwayText.SetActive(true);
@@ -20,6 +23,7 @@ public class Overmind : MonoBehaviour {
     }
 
     public void LoseGame() {
+        gameEnded = true;
         Time.timeScale = 0f;
         Player.instance.movement.enabled = false;
         bustedText.SetActive(true);
